@@ -571,72 +571,101 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.palette--button--color--grey-light-full {
+.sb-button-palette-grey-light {
   --button--color--paper: #D3D3D3;
+  --button--color--paper-hover: #D3D3D3;
   --button--color--ink: #3D3D3D;
+  --button--color--ink-hover: #3D3D3D;
   --button--color--accent: transparent;
+  --button--color--accent-hover: transparent;
 }
 
-.palette--button--color--primary-dark-full {
-  --button--color--paper: #a60000;
-  --button--color--ink: #fff;
+.sb-button-palette-primary {
+  --button--color--paper: #E63946;
+  --button--color--paper-hover: #b50714;
+  --button--color--ink: #F1FAEE;
+  --button--color--ink-hover: #fff;
   --button--color--accent: transparent;
+  --button--color--accent-hover: transparent;
 }
 
-.palette--button--color--primary-hollow {
+.sb-button-palette-primary-hollow {
   --button--color--paper: #fff;
-  --button--color--ink: #a60000;
-  --button--color--accent: #a60000;
+  --button--color--paper-hover: #e68c93;
+  --button--color--ink: #b50714;
+  --button--color--ink-hover: #fff;
+  --button--color--accent: #b50714;
+  --button--color--accent-hover: #b50714;
 }
 
-.palette--button--color--secondary-full {
-  --button--color--paper: #6E13E4;
+.sb-button-palette-secondary {
+  --button--color--paper: #a2c497;
+  --button--color--paper-hover: #F1FAEE;
   --button--color--ink: #fff;
+  --button--color--ink-hover: #a2c497;
   --button--color--accent: transparent;
+  --button--color--accent-hover: #a2c497;
 }
 
-.palette--button--color--secondary-hollow {
+.sb-button-palette-secondary-hollow {
   --button--color--paper: #fff;
-  --button--color--ink: #30006D;
-  --button--color--accent: #30006D;
+  --button--color--paper-hover: #F1FAEE;
+  --button--color--ink: #a2c497;
+  --button--color--ink-hover: #a2c497;
+  --button--color--accent: #a2c497;
+  --button--color--accent-hover: #a2c497;
 }
 
-.palette--bio--color--default {
+.sb-bio-palette-default {
   --bio--color--surface: #fff;
   --bio--color--ink: #000;
-  --bio--color--accent: #30006D;
+  --bio--color--accent: #a2c497;
 }
 
-.palette--alert--color--error {
-  --alert--color--surface: #FFD1D1;
+.sb-alert-palette-error {
+  --alert--color--surface-light: #fff;
+  --alert--color--surface: #F1FAEE;
+  --alert--color--surface-dark: #a2c497;
   --alert--color--ink: #3D3D3D;
   --alert--color--accent: #A00000;
 }
 
-.palette--alert--color--info {
-  --alert--color--surface: #D1DEFF;
+.sb-alert-palette-info {
+  --alert--color--surface-light: #fff;
+  --alert--color--surface: #F1FAEE;
+  --alert--color--surface-dark: #a2c497;
   --alert--color--ink: #3D3D3D;
   --alert--color--accent: #1154FF;
 }
 
-.palette--alert--color--success {
-  --alert--color--surface: #D6F6BD;
+.sb-alert-palette-success {
+  --alert--color--surface-light: #fff;
+  --alert--color--surface: #F1FAEE;
+  --alert--color--surface-dark: #a2c497;
   --alert--color--ink: #3D3D3D;
   --alert--color--accent: #377D00;
 }
 
-.palette--alert--color--warning {
-  --alert--color--surface: #FFF7CE;
+.sb-alert-palette-warning {
+  --alert--color--surface-light: #fff;
+  --alert--color--surface: #F1FAEE;
+  --alert--color--surface-dark: #a2c497;
   --alert--color--ink: #3D3D3D;
   --alert--color--accent: #D99C00;
 }
 
-.sb-button-sm {
+.sb-button {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-radius: 0.5rem;
+}
+
+.sb-button-lg {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .sb-bio-horizontal img {
@@ -722,6 +751,10 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.rounded-interface-interactive-element {
+  border-radius: 0.125rem;
 }
 
 .border-l-4 {
@@ -829,42 +862,20 @@ video {
   color: var(--alert--color--ink);
 }
 
-.hover\:palette--button--color--primary-dark-hollow:hover {
-  --button--color--paper: #CBF1EF;
-  --button--color--ink: #a60000;
-  --button--color--accent: #a60000;
-}
-
-.hover\:palette--button--color--primary-full:hover {
-  --button--color--paper: #f00;
-  --button--color--ink: #fff;
-  --button--color--accent: transparent;
-}
-
-.hover\:palette--button--color--secondary-dark-full:hover {
-  --button--color--paper: #30006D;
-  --button--color--ink: #fff;
-  --button--color--accent: transparent;
-}
-
-.hover\:palette--button--color--secondary-dark-hollow:hover {
-  --button--color--paper: #C9A0FF;
-  --button--color--ink: #30006D;
-  --button--color--accent: #30006D;
-}
-
-@media (min-width: 1024px) {
-  .lg\:sb-button-lg {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 0.5rem;
-  }
-}
-
 .hover\:no-underline:hover {
   text-decoration-line: none;
+}
+
+.hover\:sb-button_bg-paper-hover:hover {
+  background-color: var(--button--color--paper-hover);
+}
+
+.hover\:sb-button_ring-accent-hover:hover {
+  --tw-ring-color: var(--button--color--accent-hover);
+}
+
+.hover\:sb-button_text-ink-hover:hover {
+  color: var(--button--color--ink-hover);
 }
 
 @media (min-width: 768px) {

@@ -60,7 +60,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={[`${getPalette(palette)}`, 'sb-button_bg-paper', 'hover:sb-button_bg-paper-hover', 'sb-button_ring-accent', 'hover:sb-button_ring-accent-hover', 'sb-button_text-ink', 'hover:sb-button_text-ink-hover', 'ring-4', 'ring-inset', `${getButtonSize(size)}`, 'transition'].join(' ')}
+      className={[`${getPalette(palette)}`, 'rounded-interface-interactive-element', 'sb-button_bg-paper', 'hover:sb-button_bg-paper-hover', 'sb-button_ring-accent', 'hover:sb-button_ring-accent-hover', 'sb-button_text-ink', 'hover:sb-button_text-ink-hover', 'ring-4', 'ring-inset', `${getButtonSize(size)}`, 'transition'].join(' ')}
       {...props}
     >
       {label}

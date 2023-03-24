@@ -29,7 +29,7 @@ export const globalTypes = {
       // Array of plain string values or MenuItem shape (see below)
       items: [
         { value: `${ASSET_PREFIX}/themes/default/output.css`, title: 'Default'},
-        { value: `${ASSET_PREFIX}/themes/lcm/output.css`,title: 'LCM' }
+        { value: `${ASSET_PREFIX}/themes/rocketpop/output.css`,title: 'RocketPop' }
         
       ],
       // Property that specifies if the name of the item will be displayed

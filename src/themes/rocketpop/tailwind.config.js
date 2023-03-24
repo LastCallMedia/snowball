@@ -1,87 +1,37 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require("tailwindcss/plugin");
+
+const _ = require("lodash")
+const defaultSnowballConfig = require('./../default/tailwind.config')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-const colors = {
-  primary: {
-    light: "#CBF1EF",
-    DEFAULT: "#4ECDC4",
-    dark: "#006A63",
-  },
-  secondary: {
-    light: "#C9A0FF",
-    DEFAULT: "#6E13E4",
-    dark: "#30006D",
-  },
-  grey: {
-    light: "#D3D3D3",
-    DEFAULT: "#6F6F6F",
-    dark: "#3D3D3D",
-    xdark: "#1A1A1A",
-  },
-  warning: {
-    light: "#FFF7CE",
-    DEFAULT: "#FCD925",
-    dark: "#D99C00",
-  },
-  info: {
-    light: "#D1DEFF",
-    DEFAULT: "#87A9FF",
-    dark: "#1154FF",
-  },
-  success: {
-    light: "#D6F6BD",
-    DEFAULT: "#6AC522",
-    dark: "#377D00",
-  },
-  error: {
-    light: "#FFD1D1",
-    DEFAULT: "#FF3131",
-    dark: "#A00000",
-  },
-  white: "#fff",
-  black: "#000",
-};
 
-
-const remCalc = (pxSize, suffix = true) => {
-  const rems = pxSize / 16
-  if (suffix) {
-    return `${rems}rem`
-  }
-  return rems
-}
-
-const config = {
-  content: ["./../../stories/*.tsx"],
+const lcmConfig = {
   theme: {
-    borderRadius: {
-      "interface-interactive-element": defaultTheme.borderRadius.lg
-    },
     fontFamily: {
-      sans: "'Work Sans', sans-serif",
-      serif: "'Playfair Display', serif",
-      mono: "'IBM Plex Mono', monospace",
+      sans: "'Ubuntu', sans-serif",
+      serif: "'Source Serif Pro', serif",
+      mono: "'Source Code Pro', monospace;",
     },
     colors: {
-      ...colors,
-    },
-    fontSize: ({theme}) => ({
-      xs: [remCalc(12), remCalc(16)],
-      sm: [remCalc(14), remCalc(20)],
-      DEFAULT: [remCalc(16), remCalc(24)],
-      base: [remCalc(16), remCalc(24)],
-      lg: [remCalc(18), remCalc(28)],
-      xl: [remCalc(20), remCalc(28)],
-      "2xl": [remCalc(24), remCalc(32)],
-      "3xl": [remCalc(30), remCalc(36)],
-      "4xl": [remCalc(36), remCalc(40)],
-      "5xl": [remCalc(48), remCalc(48)],
-      "6xl": [remCalc(60), remCalc(60)],
-      "7xl": [remCalc(72), remCalc(72)],
-      "8xl": [remCalc(96), remCalc(96)],
-      "9xl": [remCalc(128), remCalc(128)]
-    }),
+      primary: {
+        light: "#e68c93",
+        DEFAULT: "#E63946",
+        dark: "#b50714"
+      },
+      secondary: {
+        light: "#fff",
+        DEFAULT: "#F1FAEE",
+        dark: "#a2c497"
+      },
 
+    },
+    extend: {
+      borderRadius: ({theme}) =>({
+        "interface-interactive-element": defaultTheme.borderRadius.sm
+      }),
+    },
     snowball: ({ theme }) => ({
       button: {
         color: {
@@ -91,7 +41,7 @@ const config = {
               hover: theme("colors.primary.dark")
             },
             ink: {
-              DEFAULT: theme("colors.grey.dark"),
+              DEFAULT: theme("colors.secondary.DEFAULT"),
               hover: theme("colors.white")
             },
             accent: {
@@ -107,7 +57,7 @@ const config = {
             },
             ink: {
               DEFAULT: theme("colors.primary.dark"),
-              hover: theme("colors.primary.dark")
+              hover: theme("colors.white")
             },
             accent: {
               DEFAULT: theme("colors.primary.dark"),
@@ -116,22 +66,22 @@ const config = {
           },
           secondary: {
             paper: {
-              DEFAULT: theme("colors.secondary.DEFAULT"),
-              hover: theme("colors.secondary.dark")
+              DEFAULT: theme("colors.secondary.dark"),
+              hover: theme("colors.secondary.DEFAULT")
             },
             ink: {
               DEFAULT: theme("colors.white"),
-              hover: theme("colors.white")
+              hover: theme("colors.secondary.dark"),
             },
             accent: {
               DEFAULT: "transparent",
-              hover: "transparent"
+              hover: theme("colors.secondary.dark")
             },
           },
           "secondary-hollow": {
             paper: {
               DEFAULT: theme("colors.white"),
-              hover: theme("colors.secondary.light")
+              hover: theme("colors.secondary.DEFAULT")
             },
             ink: {
               DEFAULT: theme("colors.secondary.dark"),
@@ -203,22 +153,23 @@ const config = {
       alert: {
         color: {
           warning: {
-            surface: theme("colors.warning.light"),
+            surface: theme("colors.secondary"),
             ink: theme("colors.grey.dark"),
             accent: theme("colors.warning.dark"),
           },
           error: {
-            surface: theme("colors.error.light"),
+            surface: theme("colors.secondary"),
             ink: theme("colors.grey.dark"),
             accent: theme("colors.error.dark"),
           },
+          
           info: {
-            surface: theme("colors.info.light"),
+            surface: theme("colors.secondary"),
             ink: theme("colors.grey.dark"),
             accent: theme("colors.info.dark"),
           },
           success: {
-            surface: theme("colors.success.light"),
+            surface: theme("colors.secondary"),
             ink: theme("colors.grey.dark"),
             accent: theme("colors.success.dark"),
           },
@@ -232,15 +183,7 @@ const config = {
       },
     }),
   },
-  plugins: [
-    require("../../snowball/snowball"),
-    require("@tailwindcss/typography")
-  ],
-  extend: {
-    borderRadius: ({theme}) =>({
-      "interface-interactive-element": theme('borderRadius.lg')
-    }),
-  },
 };
 
-module.exports = config;
+
+module.exports = _.merge(defaultSnowballConfig, lcmConfig);
