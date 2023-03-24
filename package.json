@@ -24,6 +24,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
+    "build-storybook-for-github-pages": "build-storybook -o docs-build -s public",
     "watchcss": ""
   },
   "eslintConfig": {
