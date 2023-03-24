@@ -1,6 +1,5 @@
 import TailwindThemeProvider from "./decorators/TailwindThemeProvider";
-// import fetch from "node-fetch"
-
+const ASSET_PREFIX = (typeof process.env.STORYBOOK_SNOWBALL_PREFIX !== "undefined") ? process.env.STORYBOOK_SNOWBALL_PREFIX : ""
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -24,13 +23,13 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: "/themes/default/output.css",
+    defaultValue: `${ASSET_PREFIX}/themes/default/output.css`,
     toolbar: {
       icon: 'circlehollow',
       // Array of plain string values or MenuItem shape (see below)
       items: [
-        { value: `/themes/default/output.css`, title: 'Default'},
-        { value: '/themes/lcm/output.css',title: 'LCM' }
+        { value: `${ASSET_PREFIX}/themes/default/output.css`, title: 'Default'},
+        { value: `${ASSET_PREFIX}/themes/lcm/output.css`,title: 'LCM' }
         
       ],
       // Property that specifies if the name of the item will be displayed
