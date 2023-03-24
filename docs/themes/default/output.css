@@ -651,7 +651,6 @@ video {
   padding-right: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-radius: 0.5rem;
 }
 
 .sb-button-lg {
@@ -659,7 +658,6 @@ video {
   padding-right: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-radius: 0.5rem;
 }
 
 .sb-bio-horizontal img {
@@ -745,6 +743,10 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.rounded-interface-interactive-element {
+  border-radius: 0.5rem;
 }
 
 .border-l-4 {
