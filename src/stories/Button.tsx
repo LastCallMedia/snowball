@@ -2,19 +2,20 @@ import React from 'react';
 
 interface ButtonProps {
   /**
-   * Is this the principal call to action on the page?
+   * What color predefined set of color and styles should this button use?
    */
   palette: "primary"| "secondary"|"primary-hollow"|"secondary-hollow"|"grey-light";
   
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'large';
+  size?: 'small' | 'large' | 'default';
 
   /**
-   * Button contents
+   * Button text
    */
   label: string;
+
   /**
    * Optional click handler
    */
@@ -39,11 +40,11 @@ const getPalette = (palette: string) : string => {
 const getButtonSize = (size:string) : string => {
   switch (size) {
     case "small":
-      return "sb-button"
+      return "sb-button_px-sm-x sb-button_py-sm-y"
     case "large":
-      return "sb-button-lg"
+      return "sb-button_px-lg-x sb-button_py-lg-y"
     default:
-      return "button"
+      return "sb-button_px-sm-x sb-button_py-sm-y lg:sb-button_px-lg-x lg:sb-button_py-lg-y"
   }
 }
 
@@ -60,7 +61,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={[`${getPalette(palette)}`, 'rounded-interface-interactive-element', 'sb-button_bg-paper', 'hover:sb-button_bg-paper-hover', 'sb-button_ring-accent', 'hover:sb-button_ring-accent-hover', 'sb-button_text-ink', 'hover:sb-button_text-ink-hover', 'ring-4', 'ring-inset', `${getButtonSize(size)}`, 'transition'].join(' ')}
+      className={[`${getPalette(palette)}`, `${getButtonSize(size)}`, 'rounded-interface-interactive-element','sb-button_bg-paper', 'hover:sb-button_bg-paper-hover', 'sb-button_ring-accent', 'hover:sb-button_ring-accent-hover', 'sb-button_text-ink', 'hover:sb-button_text-ink-hover', 'ring-4', 'ring-inset', 'transition'].join(' ')}
       {...props}
     >
       {label}

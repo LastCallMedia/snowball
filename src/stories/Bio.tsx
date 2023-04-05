@@ -27,7 +27,8 @@ export const Bio = ({
         "sb-bio-palette-default sb-bio_text-ink",
         "md:flex",
         layout === "horizontal" ? "md:flex-row md:space-x-4" : "md:flex-col",
-        layout === "horizontal" ? "sb-bio-horizontal" : "sb-bio-vertical"
+        layout === "horizontal" ? "sb-bio-horizontal" : "sb-bio-vertical",
+        "sb-bio_rounded-outside",
       ].join(" ")}
     >
       <img
@@ -35,7 +36,7 @@ export const Bio = ({
         width="300"
         height="300"
         alt="sample"
-        className="mx-auto mb-12"
+        className="mx-auto mb-12 sb-bio_rounded-inside"
       />
       <div className="space-y-8 bio-text">
         <div className={`space-y-2 ${layout === "horizontal" ? "text-left" : "text-center"}`}>
