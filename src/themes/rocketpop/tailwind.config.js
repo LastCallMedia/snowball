@@ -107,19 +107,27 @@ const lcmConfig = {
             }
           },
         },
+        utility: {
+          spacing: {
+            "sm-x": theme("spacing.4"),
+            "sm-y": theme("spacing.2"),
+            "lg-x": theme("spacing.6"),
+            "lg-y": theme("spacing.4")
+          }
+        },
         styles: {
-          DEFAULT: {
-            paddingLeft: theme("spacing.4"),
-            paddingRight: theme("spacing.4"),
-            paddingTop: theme("spacing.2"),
-            paddingBottom: theme("spacing.2"),
-          },
-          lg: {
-            paddingLeft: theme("spacing.6"),
-            paddingRight: theme("spacing.6"),
-            paddingTop: theme("spacing.4"),
-            paddingBottom: theme("spacing.4"),
-          },
+          // DEFAULT: {
+          //   paddingLeft: theme("spacing.4"),
+          //   paddingRight: theme("spacing.4"),
+          //   paddingTop: theme("spacing.2"),
+          //   paddingBottom: theme("spacing.2"),
+          // },
+          // lg: {
+          //   paddingLeft: theme("spacing.6"),
+          //   paddingRight: theme("spacing.6"),
+          //   paddingTop: theme("spacing.4"),
+          //   paddingBottom: theme("spacing.4"),
+          // },
         },
       },
       bio: {
@@ -130,12 +138,18 @@ const lcmConfig = {
             "accent": theme("colors.secondary.dark"),
           }
         },
+        utility: {
+          borderRadius: {
+            outside: 0,
+            inside: "50px"
+          }
+        },
         styles: {
-          _: {
-            img: {
-              borderRadius: "9999px"
-            }
-          },
+          // _: {
+          //   img: {
+          //     borderRadius: "9999px"
+          //   }
+          // },
           horizontal: {
             "img": {
               width: "180px",

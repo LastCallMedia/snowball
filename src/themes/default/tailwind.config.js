@@ -157,19 +157,15 @@ const config = {
             }
           },
         },
+        utility: {
+          spacing: {
+            "sm-x": theme("spacing.4"),
+            "sm-y": theme("spacing.2"),
+            "lg-x": theme("spacing.6"),
+            "lg-y": theme("spacing.4")
+          }
+        },
         styles: {
-          DEFAULT: {
-            paddingLeft: theme("spacing.4"),
-            paddingRight: theme("spacing.4"),
-            paddingTop: theme("spacing.2"),
-            paddingBottom: theme("spacing.2"),
-          },
-          lg: {
-            paddingLeft: theme("spacing.6"),
-            paddingRight: theme("spacing.6"),
-            paddingTop: theme("spacing.4"),
-            paddingBottom: theme("spacing.4"),
-          },
         },
       },
       bio: {
@@ -180,12 +176,13 @@ const config = {
             "accent": theme("colors.secondary.dark"),
           }
         },
+        utility: {
+          borderRadius: {
+            outside: "0",
+            inside: "9999999px"
+          }
+        },
         styles: {
-          _: {
-            img: {
-              borderRadius: "9999px"
-            }
-          },
           horizontal: {
             "img": {
               width: "180px",
@@ -223,6 +220,17 @@ const config = {
             accent: theme("colors.success.dark"),
           },
         },
+        utility: {
+          fontFamily: {
+            title: theme('fontFamily.sans'),
+            body: theme('fontFamily.serif')
+          },
+          
+          borderRadius: {
+            round: theme('borderRadius.interface-interactive-element'),
+            bla: "4px"
+          }
+        },
         styles: {
           DEFAULT: {
             padding: theme("spacing.4"),
@@ -233,14 +241,9 @@ const config = {
     }),
   },
   plugins: [
-    require("../../snowball/snowball"),
+    require("@lastcall/tailwind-snowball"),
     require("@tailwindcss/typography")
   ],
-  extend: {
-    borderRadius: ({theme}) =>({
-      "interface-interactive-element": theme('borderRadius.lg')
-    }),
-  },
 };
 
 module.exports = config;
