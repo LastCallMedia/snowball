@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Last Call Media: Snowball
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A storybook-based component library leveraging the [Tailwind-Snowball](https://github.com/LastCallMedia/tailwind-snowball) plugin. The intent is to create a component library similar to [TailwindUI](https://tailwindui.com/), but with the ability to change the color palette and appearance through TailwindCSS configuration files.
 
-## Available Scripts
+## Hosting
+The built storybook is hosted on GitHub Pages at https://lastcallmedia.github.io/snowball.
 
-In the project directory, you can run:
+Whenever a commit is pushed to the `main` branch, a new version of the storybook is published. This is handled through the commited [Build and Deploy](https://github.com/LastCallMedia/snowball/blob/main/.github/workflows/storybook.yml) GitHub Actions workflow.
 
-### `yarn start`
+## Local Development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Install Dependencies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+All dependencies come from NPM. Using the yarn package manager, run
+```shell
+yarn install
+```
 
-### `yarn test`
+### Build themes
+Currently, the different TailwindCSS themes get built separately form webpack which runs the storybook. Each theme gets built individually. This is not a convenient process, and would be a great place for a PR in order to streamline this process.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```shell
+cd ./src/themes/{THEMENAME}
+npx tailwindcss -i ./main.css -o ./../../../public/themes/{THEMENAME}/output.css --watch
+```
 
-### `yarn build`
+### Run Storybook
+Run storybook in the hot-reloading development mode that allows for easy component development
+```shell
+yarn storybook
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Build static storybook
+Build a static storybook site (used for artifacts such as GitHub Pages)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+yarn build-storybook
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `yarn eject`
+### Change Themes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The theme switcher is in the top bar. Click the theme selector, and choose your theme from the dropdown.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Theme switcher dropdown](https://github.com/lastcallmedia/snowball/blob/main/docs/img/theme_switcher.png?raw=true)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Only themes with built CSS will function.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Custom Storybook Functionality
 
-## Learn More
+### Theme Switcher
+The functionality for switching the theme lives in a custom decorator, located at `./.storybook/decorators/TailwindThemeProvider.js`, and used in `./storybook/preview.js`, where the decorator is used in `decorators`, and the themes and their CSS files are provided in `globalTypes`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
