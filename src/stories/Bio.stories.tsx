@@ -4,6 +4,49 @@ import { Lipsum } from './helpers/text';
 import { Bio } from './Bio';
 const placeholderText = new Lipsum();
 
+const description = `
+A bio card with horizontal or vertical orientation
+<details>
+<summary><strong>See snowball configuration example</strong></summary>
+\`\`\`
+// tailwind.config.js
+module.exports = {
+  //...
+  snowball: ({ theme }) => ({
+    bio: {
+      color: {
+        default: {
+          surface: theme("colors.white"),
+          "ink": theme("colors.black"),
+          "accent": theme("colors.secondary.dark"),
+        }
+        // Additional palettes here.
+      },
+      utility: {
+        borderRadius: {
+          outside: "0",
+          inside: "9999999px"
+        }
+      },
+      styles: {
+        horizontal: {
+          "img": {
+            width: "180px",
+            height: "180px",
+            flex: "0 0 180px"
+          },
+          ".bio-text": {
+            flexGrow: 1
+          }
+        },
+      },
+    }
+  })
+}
+\`\`\`
+</details>
+`
+
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'User/Bio',
@@ -15,6 +58,13 @@ export default {
       </div>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        component: description
+      },
+    },
+  },
 } as ComponentMeta<typeof Bio>;
 
 
