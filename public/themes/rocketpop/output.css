@@ -683,16 +683,8 @@ video {
   margin-bottom: 3rem;
 }
 
-.inline{
-  display: inline;
-}
-
 .flex{
   display: flex;
-}
-
-.contents{
-  display: contents;
 }
 
 .h-8{

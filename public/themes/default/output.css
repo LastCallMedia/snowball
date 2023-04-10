@@ -658,9 +658,6 @@ video {
   flex-grow: 1;
 }
 
-.sb-bio-vertical{
-}
-
 .sb-alert{
   padding: 1rem;
   border-left: 4px;
@@ -675,16 +672,8 @@ video {
   margin-bottom: 3rem;
 }
 
-.inline{
-  display: inline;
-}
-
 .flex{
   display: flex;
-}
-
-.contents{
-  display: contents;
 }
 
 .h-8{
