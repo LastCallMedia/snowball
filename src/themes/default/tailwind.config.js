@@ -193,8 +193,6 @@ const config = {
               flexGrow: 1
             }
           },
-          vertical: {
-          },
         },
       },
       alert: {
