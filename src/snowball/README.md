@@ -8,10 +8,10 @@ Install the plugin from npm
 
 ```
 # npm
-npm install -D @lastcallmedia/tailwind-snowball
+npm install -D @lastcall/tailwind-snowball
 
 # yarn
-yarn add @lastcallmedia/tailwind-snowball --dev
+yarn add @lastcall/tailwind-snowball --dev
 ```
 
 Then add the plugin to your tailwind.config.js file
@@ -23,7 +23,7 @@ module.exports = {
     // ...
   },
   plugins: [
-    require('@lastcallmedia/tailwind-snowball)
+    require('@lastcall/tailwind-snowball)
   ]
 }
 ```
