@@ -1,7 +1,6 @@
 import TailwindThemeProvider from "./decorators/TailwindThemeProvider";
 const ASSET_PREFIX = (typeof process.env.STORYBOOK_SNOWBALL_PREFIX !== "undefined") ? process.env.STORYBOOK_SNOWBALL_PREFIX : ""
 
-
 export const parameters = {
   options: {
     storySort: {

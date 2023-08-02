@@ -60,7 +60,7 @@ Info.args = {
   action: {
     href: "#",
     title: placeholderText.getWords(2, 5)
-  } 
+  }
 };
 
 export const Warning = Template.bind({});
