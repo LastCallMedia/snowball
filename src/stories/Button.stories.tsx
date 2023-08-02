@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {ComponentStory, ComponentMeta, StoryContext} from '@storybook/react';
 
 import { Button } from './Button';
 const description = `
@@ -77,12 +77,31 @@ Object.assign(HollowPrimary, {
   },
 })
 
+HollowPrimary.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+      dark: false,
+      transform: (code: string, storyContext: StoryContext) =>  {
+        return "<h1>qaq</h1>";
+      }
+    },
+  },
+};
+
 export const Secondary = Template.bind({});
 Secondary.args = {
   palette: "secondary",
   label: "Button",
   size: "small"
 };
+export const SecondaryDark = Template.bind({});
+SecondaryDark.args = {
+  palette: "secondary-dark",
+  size: "small",
+  label: "Button",
+};
+
 export const HollowSecondary = Template.bind({});
 HollowSecondary.args = {
   palette: "secondary-hollow",

@@ -1,0 +1,122 @@
+import { Meta } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { styled } from '@storybook/theming';
+import { Button } from '../Button';
+
+<Meta title="Documentation/Tailwind Local installation" />
+
+<style>
+  {`
+  .sb-button-palette-primary{
+    --button--color--paper: #4ECDC4;
+    --button--color--paper-hover: #006A63;
+    --button--color--ink: #3D3D3D;
+    --button--color--ink-hover: #fff;
+    --button--color--accent: transparent;
+    --button--color--accent-hover: transparent;
+  }
+  .sb-button_bg-paper{
+    background-color: var(--button--color--paper);
+    border-radius: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    appearance: button;
+    background-image none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .sb-button_ring-accent{
+    --tw-ring-color: var(--button--color--accent);
+  }
+  .sb-button_text-ink{
+    color: var(--button--color--ink);
+  }
+  `}
+</style>
+
+# Tailwind local installation
+
+local installation and configuration example steps
+
+## Installation with lando
+
+In .lando.yml add example code in bellow:
+
+```typescript
+
+services:
+  node:
+    type: node:14
+    ssl: true
+    build:
+      - yarn install
+tooling:
+  yarn:
+    service: node
+  npm:
+    service: node
+    cmd: "echo 'NPM is disabled in favor of yarn'"
+```
+
+Next is to add tailwind in package.json file see example in bellow
+
+```typescript
+
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "tailwindcss": "^3.3.2"
+  },
+  "config": {
+    "themepath": "./web/themes/custom/d10tailwind"
+  },
+  "devDependencies": {
+    "@lastcall/tailwind-snowball": "^0.0.3",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.9",
+    "postcss": "^8.4.24",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-partial-process": "^2.0.0",
+    "postcss-prepend-selector": "^0.3.1",
+    "postcss-selector-parser": "^6.0.13",
+    "tailwindcss-debug-screens": "^2.2.1",
+    "tailwindcss-multi-column": "^1.0.2"
+  },
+  "scripts": {
+    "watchcss": "NODE_ENV=development postcss $npm_package_config_themepath/src/css/main.css -o $npm_package_config_themepath/dist/main.css --watch",
+    "buildcss": "NODE_ENV=production postcss $npm_package_config_themepath/src/css/main.css -o $npm_package_config_themepath/dist/main.css"
+  }
+}
+```
+
+Run
+```typescript
+   lando yarn install
+```
+
+Add storybook component code to your project and run (if you have buildcss command configured in your packages.json see in above example)
+```typescript
+   lando yarn run buildcss
+```
+
+Example of tailwind button with html
+<StyledDiv>
+<Button
+  label="Button"
+  onClick={() => {}}
+  palette="primary"
+  size="small"
+/>
+</StyledDiv>
+
+```html
+<button type="button" class="sb-button-palette-primary sb-button_px-sm-x sb-button_py-sm-y rounded-interface-interactive-element sb-button_bg-paper hover:sb-button_bg-paper-hover sb-button_ring-accent hover:sb-button_ring-accent-hover sb-button_text-ink hover:sb-button_text-ink-hover ring-4 ring-inset transition">
+  Button
+</button>
+```

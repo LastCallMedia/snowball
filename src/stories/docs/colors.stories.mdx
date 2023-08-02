@@ -1,0 +1,166 @@
+import { Meta } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { styled } from '@storybook/theming';
+
+<Meta title="Documentation/Colors and Buttons" />
+
+## Colors and Buttons
+
+You can copy only buttons or only colors and past in your tailwind.config.js file.
+
+   ```typescript
+
+      // tailwind.config.js
+      const colors = {
+        primary: {
+          light: "#CBF1EF",
+          DEFAULT: "#4ECDC4",
+          dark: "#006A63",
+        },
+        secondary: {
+          light: "#C9A0FF",
+          DEFAULT: "#6E13E4",
+          dark: "#30006D",
+        },
+        grey: {
+          light: "#D3D3D3",
+          DEFAULT: "#6F6F6F",
+          dark: "#3D3D3D",
+          xdark: "#1A1A1A",
+        },
+        warning: {
+          light: "#FFF7CE",
+          DEFAULT: "#FCD925",
+          dark: "#D99C00",
+        },
+        info: {
+          light: "#D1DEFF",
+          DEFAULT: "#87A9FF",
+          dark: "#1154FF",
+        },
+        success: {
+          light: "#D6F6BD",
+          DEFAULT: "#6AC522",
+          dark: "#377D00",
+        },
+        error: {
+          light: "#FFD1D1",
+          DEFAULT: "#FF3131",
+          dark: "#A00000",
+        },
+        white: "#fff",
+        black: "#000",
+      };
+
+      module.exports = {
+        theme: {
+          //.....
+          colors: {
+            ...colors,
+          },
+          snowball: ({ theme }) => ({
+            button: {
+              color: {
+                "primary": {
+                  paper: {
+                    DEFAULT: theme("colors.primary.DEFAULT"),
+                    hover: theme("colors.primary.dark")
+                  },
+                  ink: {
+                    DEFAULT: theme("colors.grey.dark"),
+                    hover: theme("colors.white")
+                  },
+                  accent: {
+                    DEFAULT: "transparent",
+                    hover: "transparent"
+                  }
+                },
+                "primary-hollow": {
+                  paper: {
+                    DEFAULT: theme("colors.white"),
+                    hover: theme("colors.primary.light")
+                  },
+                  ink: {
+                    DEFAULT: theme("colors.primary.dark"),
+                    hover: theme("colors.primary.dark")
+                  },
+                  accent: {
+                    DEFAULT: theme("colors.primary.dark"),
+                    hover: theme("colors.primary.dark")
+                  }
+                },
+                secondary: {
+                  paper: {
+                    DEFAULT: theme("colors.secondary.DEFAULT"),
+                    hover: theme("colors.secondary.dark")
+                  },
+                  ink: {
+                    DEFAULT: theme("colors.white"),
+                    hover: theme("colors.white")
+                  },
+                  accent: {
+                    DEFAULT: "transparent",
+                    hover: "transparent"
+                  },
+                },
+                "secondary-dark": {
+                  paper: {
+                    DEFAULT: theme("colors.secondary.dark"),
+                    hover: theme("colors.secondary.DEFAULT"),
+                  },
+                  ink: {
+                    DEFAULT: theme("colors.white"),
+                    hover: theme("colors.white")
+                  },
+                  accent: {
+                    DEFAULT: "transparent",
+                    hover: "transparent"
+                  }
+                },
+                "secondary-hollow": {
+                  paper: {
+                    DEFAULT: theme("colors.white"),
+                    hover: theme("colors.secondary.light")
+                  },
+                  ink: {
+                    DEFAULT: theme("colors.secondary.dark"),
+                    hover: theme("colors.secondary.dark")
+                  },
+                  accent: {
+                    DEFAULT: theme("colors.secondary.dark"),
+                    hover: theme("colors.secondary.dark")
+                  },
+                },
+                "grey-light": {
+                  paper: {
+                    DEFAULT: theme("colors.grey.light"),
+                    hover: theme("colors.grey.dark")
+                  },
+                  ink: {
+                    DEFAULT: theme("colors.grey.dark"),
+                    hover: theme("colors.white")
+                  },
+                  accent: {
+                    DEFAULT: "transparent",
+                    hover: "transparent"
+                  }
+                },
+              },
+              utility: {
+                spacing: {
+                  "sm-x": theme("spacing.4"),
+                  "sm-y": theme("spacing.2"),
+                  "lg-x": theme("spacing.6"),
+                  "lg-y": theme("spacing.4")
+                }
+              },
+              styles: {
+              },
+            },
+        },
+        plugins: [
+          require("@lastcall/tailwind-snowball"),
+          require("@tailwindcss/typography")
+        ],
+      };
+  ```

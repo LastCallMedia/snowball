@@ -99,7 +99,7 @@ const config = {
               hover: "transparent"
             }
           },
-          
+
           "primary-hollow": {
             paper: {
               DEFAULT: theme("colors.white"),
@@ -128,6 +128,20 @@ const config = {
               hover: "transparent"
             },
           },
+          "secondary-dark": {
+            paper: {
+              DEFAULT: theme("colors.secondary.dark"),
+              hover: theme("colors.secondary.DEFAULT"),
+            },
+            ink: {
+              DEFAULT: theme("colors.white"),
+              hover: theme("colors.white")
+            },
+            accent: {
+              DEFAULT: "transparent",
+              hover: "transparent"
+            }
+          },
           "secondary-hollow": {
             paper: {
               DEFAULT: theme("colors.white"),
@@ -145,11 +159,11 @@ const config = {
           "grey-light": {
             paper: {
               DEFAULT: theme("colors.grey.light"),
-              hover: theme("colors.grey.light")
+              hover: theme("colors.grey.dark")
             },
             ink: {
               DEFAULT: theme("colors.grey.dark"),
-              hover: theme("colors.grey.dark")
+              hover: theme("colors.white")
             },
             accent: {
               DEFAULT: "transparent",
@@ -223,7 +237,7 @@ const config = {
             title: theme('fontFamily.sans'),
             body: theme('fontFamily.serif')
           },
-          
+
           borderRadius: {
             round: theme('borderRadius.interface-interactive-element'),
             bla: "4px"

@@ -4,8 +4,8 @@ interface ButtonProps {
   /**
    * What color predefined set of color and styles should this button use?
    */
-  palette: "primary"| "secondary"|"primary-hollow"|"secondary-hollow"|"grey-light";
-  
+  palette: "primary"| "secondary"|"primary-hollow"|"secondary-hollow"|"grey-light"|"secondary-dark";
+
   /**
    * How large should the button be?
    */
@@ -30,6 +30,8 @@ const getPalette = (palette: string) : string => {
       return "sb-button-palette-primary"
     case "grey-light":
       return "sb-button-palette-grey-light"
+    case "secondary-dark":
+      return "sb-button-palette-secondary-dark"
     case "primary-hollow":
       return "sb-button-palette-primary-hollow"
     case "secondary-hollow":
@@ -57,7 +59,7 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  
+
   return (
     <button
       type="button"
