@@ -575,9 +575,9 @@ video {
 
 .sb-button-palette-grey-light{
   --button--color--paper: #D3D3D3;
-  --button--color--paper-hover: #D3D3D3;
+  --button--color--paper-hover: #3D3D3D;
   --button--color--ink: #3D3D3D;
-  --button--color--ink-hover: #3D3D3D;
+  --button--color--ink-hover: #fff;
   --button--color--accent: transparent;
   --button--color--accent-hover: transparent;
 }
@@ -603,6 +603,15 @@ video {
 .sb-button-palette-secondary{
   --button--color--paper: #6E13E4;
   --button--color--paper-hover: #30006D;
+  --button--color--ink: #fff;
+  --button--color--ink-hover: #fff;
+  --button--color--accent: transparent;
+  --button--color--accent-hover: transparent;
+}
+
+.sb-button-palette-secondary-dark{
+  --button--color--paper: #30006D;
+  --button--color--paper-hover: #6E13E4;
   --button--color--ink: #fff;
   --button--color--ink-hover: #fff;
   --button--color--accent: transparent;
