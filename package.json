@@ -25,8 +25,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006 -s ../public",
-    "build-storybook": "storybook build -s ../public",
-    "build-storybook-for-github-pages": "storybook build -o docs-build -s ../public",
+    "build-storybook": "storybook build -s public",
+    "build-storybook-for-github-pages": "storybook build -o docs-build -s public",
     "watchcss": ""
   },
   "eslintConfig": {
